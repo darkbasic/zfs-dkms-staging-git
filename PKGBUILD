@@ -17,8 +17,8 @@ else
 fi
 
 pkgname=${_pkgname}-dkms-staging-git
-pkgver=2.2.4.r0.g2566592045
-pkgrel=1
+pkgver=2.2.4.r10.g2eab4f7b39
+pkgrel=2
 pkgdesc="Kernel modules for the Zettabyte File System (release staging branch)."
 arch=('any')
 url="https://zfsonlinux.org/"
@@ -27,8 +27,10 @@ provides=("ZFS-MODULE" "SPL-MODULE" "zfs-dkms" "zfs")
 conflicts=("zfs-dkms")
 makedepends=("git")
 source=("${_pkgname}::git+${_git_repo}#${_git_branch}"
+        "linux69-call-adddisk.patch::https://github.com/openzfs/zfs/commit/49f3ce338587410cabc078646b76152685ae102d.patch"
         "0001-only-build-the-module-in-dkms.conf.patch")
 sha256sums=('SKIP'
+            '877412418e13f9ffc4ff2666abf536866d6dc2474ba3485a5d8d805cddbdf72d'
             '8d5c31f883a906ab42776dcda79b6c89f904d8f356ade0dab5491578a6af55a5')
 
 prepare() {
