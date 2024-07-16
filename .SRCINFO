@@ -1,6 +1,6 @@
 pkgbase = zfs-dkms-staging-git
 	pkgdesc = Kernel modules for the Zettabyte File System (release staging branch).
-	pkgver = 2.2.4.r10.g2eab4f7b39
+	pkgver = 2.2.4.r11.g54ef0fdf60
 	pkgrel = 2
 	url = https://zfsonlinux.org/
 	arch = any
@@ -12,10 +12,12 @@ pkgbase = zfs-dkms-staging-git
 	provides = zfs
 	conflicts = zfs-dkms
 	source = zfs::git+https://github.com/openzfs/zfs.git#branch=zfs-2.2.5-staging
-	source = linux69-call-adddisk.patch::https://github.com/openzfs/zfs/commit/49f3ce338587410cabc078646b76152685ae102d.patch
+	source = linux69-call-adddisk.patch::https://github.com/openzfs/zfs/commit/49f3ce338587410cabc078646b76152685ae102d.patch?full_index=1
+	source = disable-dependency-tracking.patch::https://github.com/openzfs/zfs/commit/c98295eed2687cee704ef5f8f3218d3d44a6a1d8.patch?full_index=1
 	source = 0001-only-build-the-module-in-dkms.conf.patch
 	sha256sums = SKIP
-	sha256sums = 877412418e13f9ffc4ff2666abf536866d6dc2474ba3485a5d8d805cddbdf72d
+	sha256sums = 8cebe7524402bc0b4093d865eabec2062a38a93ca953f8d14b62ffc541932a98
+	sha256sums = 9dc7963c3ac59b0d7ea33ca2aed9dd2e80de0cfb1517df9d028e8e0f2944d3dd
 	sha256sums = 8d5c31f883a906ab42776dcda79b6c89f904d8f356ade0dab5491578a6af55a5
 
 pkgname = zfs-dkms-staging-git

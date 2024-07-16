@@ -10,14 +10,14 @@ _git_branch=${_git_branch##*/}
 _staging_ver=${_git_branch#zfs-}
 _staging_ver=${_staging_ver%-staging}
 
-if /usr/bin/git ls-remote -t --exit-code "${_git_repo}" "zfs-${_staging_ver}" > /dev/null; then
+if /usr/bin/git ls-remote -t --exit-code "${_git_repo}" "zfs-${_staging_ver}" >/dev/null; then
     _git_branch="tag=zfs-${_staging_ver}"
 else
     _git_branch="branch=${_git_branch}"
 fi
 
 pkgname=${_pkgname}-dkms-staging-git
-pkgver=2.2.4.r10.g2eab4f7b39
+pkgver=2.2.4.r11.g54ef0fdf60
 pkgrel=2
 pkgdesc="Kernel modules for the Zettabyte File System (release staging branch)."
 arch=('any')
@@ -27,10 +27,12 @@ provides=("ZFS-MODULE" "SPL-MODULE" "zfs-dkms" "zfs")
 conflicts=("zfs-dkms")
 makedepends=("git")
 source=("${_pkgname}::git+${_git_repo}#${_git_branch}"
-        "linux69-call-adddisk.patch::https://github.com/openzfs/zfs/commit/49f3ce338587410cabc078646b76152685ae102d.patch"
+        "linux69-call-adddisk.patch::https://github.com/openzfs/zfs/commit/49f3ce338587410cabc078646b76152685ae102d.patch?full_index=1"
+        "disable-dependency-tracking.patch::https://github.com/openzfs/zfs/commit/c98295eed2687cee704ef5f8f3218d3d44a6a1d8.patch?full_index=1"
         "0001-only-build-the-module-in-dkms.conf.patch")
 sha256sums=('SKIP'
-            '877412418e13f9ffc4ff2666abf536866d6dc2474ba3485a5d8d805cddbdf72d'
+            '8cebe7524402bc0b4093d865eabec2062a38a93ca953f8d14b62ffc541932a98'
+            '9dc7963c3ac59b0d7ea33ca2aed9dd2e80de0cfb1517df9d028e8e0f2944d3dd'
             '8d5c31f883a906ab42776dcda79b6c89f904d8f356ade0dab5491578a6af55a5')
 
 prepare() {
@@ -77,7 +79,7 @@ build() {
     autoreconf -fi
 
     ./scripts/dkms.mkconf -n ${_pkgname} -v "${pkgver}" -f dkms.conf
-     printf '#define\tZFS_META_GITREV "zfs-%s"\n' "${pkgver}" > include/zfs_gitrev.h
+    printf '#define\tZFS_META_GITREV "zfs-%s"\n' "${pkgver}" >include/zfs_gitrev.h
 
 }
 
