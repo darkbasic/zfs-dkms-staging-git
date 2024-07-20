@@ -31,7 +31,7 @@ source=("${_pkgname}::git+${_git_repo}#${_git_branch}"
         "disable-dependency-tracking.patch::https://github.com/openzfs/zfs/commit/c98295eed2687cee704ef5f8f3218d3d44a6a1d8.patch?full_index=1"
         "linux610-rework-queue-limits-setup.patch::https://github.com/openzfs/zfs/commit/b409892ae5028965a6fe98dde1346594807e6e45.patch?full_index=1"
         "linux610-avoid-kmem_cache_alloc.patch::https://github.com/openzfs/zfs/commit/e951dba48a6330aca9c161c50189f6974e6877f0.patch?full_index=1"
-        "linux516-use-bdev_nr_bytes::https://github.com/openzfs/zfs/commit/7ca7bb7fd723a91366ce767aea53c4f5c2d65afb.patch?full_index=1"
+        "linux516-use-bdev_nr_bytes.patch::https://github.com/openzfs/zfs/commit/7ca7bb7fd723a91366ce767aea53c4f5c2d65afb.patch?full_index=1"
         "0001-only-build-the-module-in-dkms.conf.patch")
 sha256sums=('SKIP'
             '8cebe7524402bc0b4093d865eabec2062a38a93ca953f8d14b62ffc541932a98'
