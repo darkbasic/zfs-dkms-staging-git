@@ -18,11 +18,12 @@ fi
 
 pkgname=${_pkgname}-dkms-staging-git
 pkgver=2.2.4.r11.g54ef0fdf60
-pkgrel=4
+pkgrel=5
 pkgdesc="Kernel modules for the Zettabyte File System (release staging branch)."
 arch=('any')
 url="https://zfsonlinux.org/"
 license=('CDDL-1.0')
+groups=('zfs-staging-git')
 provides=("ZFS-MODULE" "SPL-MODULE" "zfs-dkms" "zfs")
 conflicts=("zfs-dkms")
 makedepends=("git")
