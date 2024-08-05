@@ -2,3 +2,5 @@
 /src
 /zfs
 zfs*.pkg.*
+/*.patch
+!/0001-only-build-the-module-in-dkms.conf.patch

@@ -17,8 +17,8 @@ else
 fi
 
 pkgname=${_pkgname}-dkms-staging-git
-pkgver=2.2.4.r11.g54ef0fdf60
-pkgrel=5
+pkgver=2.2.4.r12.g722af42420
+pkgrel=1
 pkgdesc="Kernel modules for the Zettabyte File System (release staging branch)."
 arch=('any')
 url="https://zfsonlinux.org/"
