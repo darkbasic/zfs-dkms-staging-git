@@ -17,7 +17,7 @@ else
 fi
 
 pkgname=${_pkgname}-dkms-staging-git
-pkgver=2.2.5.r0.g33174af151
+pkgver=2.2.6.r0.gbaa5031456
 pkgrel=1
 pkgdesc="Kernel modules for the Zettabyte File System (release staging branch)."
 arch=('any')
