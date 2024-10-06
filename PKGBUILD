@@ -28,8 +28,14 @@ provides=("ZFS-MODULE" "SPL-MODULE" "zfs-dkms" "zfs")
 conflicts=("zfs-dkms")
 makedepends=("git")
 source=("${_pkgname}::git+${_git_repo}#${_git_branch}"
+	"linux610-fix-tracepoints-definitions.patch::https://github.com/openzfs/zfs/commit/90af1e83e8abb89668b82d859940a596b195fe75.patch?full_index=1"
+	"linux610-zfs_log-add-flex-array-fields-to-log-record-structs.patch"
+	"linux610-lua-add-flex-array-field-to-TString-type.patch::https://github.com/openzfs/zfs/commit/c84a37ae93b5f2b32d30bee1cb942627c4c6caab.patch?full_index=1"
         "0001-only-build-the-module-in-dkms.conf.patch")
 sha256sums=('SKIP'
+            '46448a080544be0492d4a4e45af9871f6fc773f49d594fcab8deb5df63b0e5ff'
+            '1887592564e682353cd2049b6595c0a1fcfbb662c06feb9757251a8e551eee12'
+            '0750502bece069b82189347e6530fb569ace8a708246f2c4ec5c54e221950bcb'
             '8d5c31f883a906ab42776dcda79b6c89f904d8f356ade0dab5491578a6af55a5')
 
 prepare() {
